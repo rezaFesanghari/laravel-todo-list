@@ -36,26 +36,70 @@ new #[Layout('layouts.guest')] class extends Component
     }
 }; ?>
 
-<div>
-    <div class="mb-4 text-sm text-gray-600">
-        {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+<div class="max-w-md mx-auto">
+
+    {{-- توضیحات --}}
+    <div class="mb-6 text-sm text-center leading-7 text-gray-600">
+        رمز عبور خود را فراموش کرده‌اید؟
+        <br>
+        ایمیل حساب کاربری‌تان را وارد کنید تا لینک بازیابی رمز عبور برای شما ارسال شود.
     </div>
 
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+    {{-- پیام موفقیت --}}
+    <x-auth-session-status
+        class="mb-5"
+        :status="session('status')"
+    />
 
-    <form wire:submit="sendPasswordResetLink">
-        <!-- Email Address -->
+    <form wire:submit="sendPasswordResetLink" class="space-y-5">
+
+        {{-- ایمیل --}}
         <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input wire:model="email" id="email" class="block mt-1 w-full" type="email" name="email" required autofocus />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+
+            <x-input-label
+                for="email"
+                value="ایمیل"
+                class="mb-2 font-medium"
+            />
+
+            <div class="relative">
+
+                <span class="absolute inset-y-0 right-4 flex items-center text-gray-400">
+                    📧
+                </span>
+
+                <x-text-input
+                    wire:model="email"
+                    id="email"
+                    type="email"
+                    name="email"
+                    dir="ltr"
+                    class="block w-full pr-12 mt-1"
+                    placeholder="example@gmail.com"
+                    required
+                    autofocus
+                />
+
+            </div>
+
+            <x-input-error
+                :messages="$errors->get('email')"
+                class="mt-2"
+            />
+
         </div>
 
-        <div class="flex items-center justify-end mt-4">
-            <x-primary-button>
-                {{ __('Email Password Reset Link') }}
+        {{-- دکمه --}}
+        <div>
+
+            <x-primary-button
+                class="w-full justify-center py-3 rounded-xl text-base font-bold"
+            >
+                ارسال لینک بازیابی رمز عبور
             </x-primary-button>
+
         </div>
+
     </form>
+
 </div>

@@ -37,53 +37,183 @@ new #[Layout('layouts.guest')] class extends Component
     }
 }; ?>
 
-<div>
-    <form wire:submit="register">
-        <!-- Name -->
+<div class="max-w-md mx-auto">
+
+    <form wire:submit="register" class="space-y-5">
+
+        {{-- نام و نام خانوادگی --}}
         <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input wire:model="name" id="name" class="block mt-1 w-full" type="text" name="name" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+
+            <x-input-label
+                for="name"
+                value="نام و نام خانوادگی"
+                class="mb-2 font-medium"
+            />
+
+            <div class="relative">
+
+                <span class="absolute inset-y-0 right-4 flex items-center text-gray-400">
+                    👤
+                </span>
+
+                <x-text-input
+                    wire:model="name"
+                    id="name"
+                    type="text"
+                    name="name"
+                    class="block w-full pr-12 mt-1"
+                    placeholder="مثلا علی غلامی"
+                    required
+                    autofocus
+                    autocomplete="name"
+                />
+
+            </div>
+
+            <x-input-error
+                :messages="$errors->get('name')"
+                class="mt-2"
+            />
+
         </div>
 
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input wire:model="email" id="email" class="block mt-1 w-full" type="email" name="email" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+
+        {{-- ایمیل --}}
+        <div>
+
+            <x-input-label
+                for="email"
+                value="ایمیل"
+                class="mb-2 font-medium"
+            />
+
+            <div class="relative">
+
+                <span class="absolute inset-y-0 right-4 flex items-center text-gray-400">
+                    📧
+                </span>
+
+                <x-text-input
+                    wire:model="email"
+                    id="email"
+                    type="email"
+                    name="email"
+                    dir="ltr"
+                    class="block w-full pr-12 mt-1"
+                    placeholder="example@gmail.com"
+                    required
+                    autocomplete="username"
+                />
+
+            </div>
+
+            <x-input-error
+                :messages="$errors->get('email')"
+                class="mt-2"
+            />
+
         </div>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
 
-            <x-text-input wire:model="password" id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
+        {{-- رمز عبور --}}
+        <div>
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+            <x-input-label
+                for="password"
+                value="رمز عبور"
+                class="mb-2 font-medium"
+            />
+
+            <div class="relative">
+
+                <span class="absolute inset-y-0 right-4 flex items-center text-gray-400">
+                    🔒
+                </span>
+
+                <x-text-input
+                    wire:model="password"
+                    id="password"
+                    type="password"
+                    name="password"
+                    dir="ltr"
+                    class="block w-full pr-12 mt-1"
+                    placeholder="حداقل ۸ کاراکتر"
+                    required
+                    autocomplete="new-password"
+                />
+
+            </div>
+
+            <x-input-error
+                :messages="$errors->get('password')"
+                class="mt-2"
+            />
+
         </div>
 
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
 
-            <x-text-input wire:model="password_confirmation" id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
+        {{-- تکرار رمز عبور --}}
+        <div>
 
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+            <x-input-label
+                for="password_confirmation"
+                value="تکرار رمز عبور"
+                class="mb-2 font-medium"
+            />
+
+            <div class="relative">
+
+                <span class="absolute inset-y-0 right-4 flex items-center text-gray-400">
+                    🔐
+                </span>
+
+                <x-text-input
+                    wire:model="password_confirmation"
+                    id="password_confirmation"
+                    type="password"
+                    name="password_confirmation"
+                    dir="ltr"
+                    class="block w-full pr-12 mt-1"
+                    placeholder="رمز عبور را دوباره وارد کنید"
+                    required
+                    autocomplete="new-password"
+                />
+
+            </div>
+
+            <x-input-error
+                :messages="$errors->get('password_confirmation')"
+                class="mt-2"
+            />
+
         </div>
 
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}" wire:navigate>
-                {{ __('Already registered?') }}
+
+        {{-- لینک ورود --}}
+        <div class="text-center">
+
+            <a
+                href="{{ route('login') }}"
+                wire:navigate
+                class="text-sm text-indigo-600 hover:text-indigo-800 transition"
+            >
+                قبلاً حساب کاربری ساخته‌اید؟ وارد شوید
             </a>
 
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
         </div>
+
+
+        {{-- دکمه ثبت‌نام --}}
+        <div>
+
+            <x-primary-button
+                class="w-full justify-center py-3 rounded-xl text-base font-bold"
+            >
+                ایجاد حساب کاربری
+            </x-primary-button>
+
+        </div>
+
     </form>
+
 </div>
