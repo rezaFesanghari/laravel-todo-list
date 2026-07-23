@@ -60,11 +60,6 @@ new class extends Component
                         مدیریت دسته‌بندی‌ها
                     </x-nav-link>
 
-                    <a href="#"
-                       class="px-4 py-2 rounded-xl text-gray-600 hover:bg-gray-100 transition">
-                        گزارش‌ها
-                    </a>
-
                 </div>
 
             </div>
@@ -83,7 +78,7 @@ new class extends Component
 
                     </div>
 
-                    <div class="hidden lg:block">
+                    <a href="{{ route('profile') }}" wire:navigate class="hidden lg:block">
 
                         <p class="font-semibold text-gray-700">
                             {{ auth()->user()->name }}
@@ -93,7 +88,7 @@ new class extends Component
                             خوش اومدی 👋
                         </p>
 
-                    </div>
+                    </a>
 
                 </div>
 
