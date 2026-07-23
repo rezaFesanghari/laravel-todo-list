@@ -19,6 +19,13 @@ Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
+Route::get('/tasks', function () {
+    return view('tasks');
+})->middleware(['auth', 'verified'])->name('tasks');
+
+Route::get('/categories', function () {
+    return view('categories');
+})->middleware(['auth', 'verified'])->name('categories');
 Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
