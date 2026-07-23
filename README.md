@@ -89,47 +89,19 @@ Most interactive parts of the application are powered by Livewire for a fast and
 
 ---
 
-# 🖼️ Screenshots
+# 📸 Screenshots
 
-## Dashboard
+| Dashboard | Tasks |
+|-----------|-------|
+| ![](screenshots/dashboard.png) | ![](screenshots/tasks.png) |
 
-```
-assets/dashboard.png
-```
+| Categories | Profile |
+|-----------|---------|
+| ![](screenshots/categories.png) | ![](screenshots/profile.png) |
 
----
-
-## Task List
-
-```
-assets/tasks.png
-```
-
----
-
-## Categories
-
-```
-assets/categories.png
-```
-
----
-
-## Profile
-
-```
-assets/profile.png
-```
-
----
-
-## Mobile View
-
-```
-assets/mobile.png
-```
-
----
+| Login | Register |
+|-------|----------|
+| ![](screenshots/login.png) | ![](screenshots/register.png) |
 
 # 🌐 Live Demo
 
