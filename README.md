@@ -147,7 +147,7 @@ tests
 Clone the project
 
 ```bash
-git clone https://github.com/rezaFesanghari/taskflow.git
+git clone https://github.com/rezaFesanghari/laravel-todo-list
 ```
 
 Go to project
